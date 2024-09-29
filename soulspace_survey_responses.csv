@@ -1,0 +1,4 @@
+first_name,last_name,age,pronouns,gender,email,traveling,animals,reading,sports,cooking,music,art,gaming,technology,fitness,nature,mental_health,ADHD,depression,anxiety,stress,PTSD,self_esteem,other_mental_health
+Maya,Oum,19,she/her,Female,maya.oum02@gmail.com,False,True,True,True,True,True,False,False,False,False,False,False,False,False,False,True,True,False,False
+Anna,Correa,19,she/her,Female,annacorrea.us@gmail.com,False,True,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+Maya,Oum,19,she/her,Female,maya.oum02@gmail.com,False,True,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
