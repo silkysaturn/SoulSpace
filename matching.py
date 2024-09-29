@@ -9,16 +9,16 @@ import firebase_admin
 # Initialize Firebase
 def initialize_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("config/serviceAccountKey.json")
+        cred = credentials.Certificate(".gitignore/serviceAccountKey.json")
         initialize_app(cred)
-
 # Firebase Authentication functions
 def sign_up(email, password):
     try:
         user = auth.create_user(email=email, password=password)
         return {"success": True, "message": "User created successfully!", "user": user}
-    except Exception as e:
+    except Exception as e:  # Define 'e' here to catch the exception
         return {"success": False, "message": f"Error creating user: {e}"}
+
 
 def login(email, password):
     try:

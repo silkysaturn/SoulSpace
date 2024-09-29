@@ -3,21 +3,14 @@ from firebase import initialize_firebase
 from firebase.auth import sign_up, login
 from mt import mood_tracker  
 from survey import survey_form
+from firebase_admin import firestore
+from chat import chat_interface
+
 
 # Initialize Firebase
 initialize_firebase()
+db = firestore.client()
 
-# Custom CSS to change font family
-st.markdown(
-    """
-    <style>
-    body {
-        font-family: 'Arial', sans-serif;  /* Change to your preferred font */
-    }
-    </style>
-    """, 
-    unsafe_allow_html=True
-)
 
 # Session state initialization
 if "logged_in" not in st.session_state:
@@ -82,7 +75,7 @@ def dashboard():
     st.write(f"You are worthy of happiness and peace of mind.")
 
     # Create two columns for navigation buttons
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         if st.button("Go to Mood Tracker"):
@@ -91,6 +84,10 @@ def dashboard():
     with col2:
         if st.button("Complete Survey"):
             st.session_state.page = "survey"  # Navigate to Survey
+    
+    with col3:
+        if st.button("Go to chat"):
+            st.session_state.page = "chat"
 
     # Resources section
     st.subheader("Resources")
@@ -108,8 +105,10 @@ def dashboard():
 
 # Main logic to handle navigation and page rendering
 if st.session_state.logged_in:
-    if st.session_state.page == "dashboard":
+    if st.session_state.page == "dashboard":        
         dashboard()  # Call the dashboard function
+    elif st.session_state.page == "chat":
+        chat_interface()
     elif st.session_state.page == "mood_tracker":
         mood_tracker()  # Call the mood tracker function
     elif st.session_state.page == "survey":
