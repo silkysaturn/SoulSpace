@@ -44,7 +44,6 @@ def dashboard():
         st.session_state.logged_in = False
         st.session_state.user_email = None
         st.success("You have been logged out.")
-        st.experimental_rerun()
 
 if st.session_state.logged_in:
     dashboard()  
