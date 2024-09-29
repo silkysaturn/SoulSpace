@@ -4,6 +4,7 @@ from firebase.auth import sign_up, login
 
 initialize_firebase()
 
+
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
